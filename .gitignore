@@ -1,4 +1,12 @@
-.venv/
+# Kubernetes and Minikube binaries
+kubectl
+minikube
+minikube-linux-amd64
+
+# Python files
 __pycache__/
 *.pyc
+.venv/
+
+# Environment files
 .env
