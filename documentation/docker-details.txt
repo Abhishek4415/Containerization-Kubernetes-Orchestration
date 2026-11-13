@@ -1,0 +1,31 @@
+DOCKER CONFIGURATION
+
+Application:
+Flask Python Application
+
+Docker Image:
+devops-flask
+
+Image Versions:
+1.0 and 2.0
+
+Base Image:
+python:3.12-slim
+
+Application Port:
+5000
+
+Docker Compose Services:
+1. Flask Web Application
+2. Redis Service
+
+Storage Demonstration:
+1. Container writable layer
+2. Named Docker volume
+3. Bind mount
+
+Network:
+lab2-network
+
+Registry:
+Docker Hub

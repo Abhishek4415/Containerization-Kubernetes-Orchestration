@@ -1,0 +1,37 @@
+EXPERIMENT 1:
+Successfully created a Dockerfile,
+built a Docker image and ran a container.
+
+EXPERIMENT 2:
+Successfully managed Docker containers
+and images, pushed an image to Docker Hub,
+and executed a multi-container application
+using Docker Compose.
+
+EXPERIMENT 3:
+Demonstrated temporary data loss after
+container deletion and persistent storage
+using named volumes and bind mounts.
+
+EXPERIMENT 4:
+Successfully established communication
+between two containers using Docker
+networking, container names and IP addresses.
+
+EXPERIMENT 5:
+Successfully deployed the application
+on a Minikube Kubernetes cluster using
+Deployment and Service manifests.
+
+EXPERIMENT 6:
+Successfully demonstrated scaling,
+rolling updates and rollbacks using
+Kubernetes Deployment.
+
+EXPERIMENT 7:
+Configured continuous deployment using
+Jenkins, Docker Hub and Kubernetes.
+
+EXPERIMENT 8:
+Recorded all commands, configuration files,
+screenshots and observations.

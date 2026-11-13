@@ -1,0 +1,114 @@
+================================
+EXPERIMENT 1: DOCKER
+================================
+
+docker --version
+docker compose version
+docker run hello-world
+
+docker build -t devops-flask:1.0 .
+docker images
+docker run -d --name devops-container -p 5000:5000 devops-flask:1.0
+docker ps
+docker history devops-flask:1.0
+docker logs devops-container
+docker stop devops-container
+docker start devops-container
+docker rm devops-container
+
+
+================================
+EXPERIMENT 2: DOCKER MANAGEMENT
+================================
+
+docker ps -a
+docker images
+docker tag devops-flask:1.0 YOUR_USERNAME/devops-flask:1.0
+docker login
+docker push YOUR_USERNAME/devops-flask:1.0
+
+docker compose up -d --build
+docker compose ps
+docker compose logs
+docker compose down
+
+
+================================
+EXPERIMENT 3: DOCKER STORAGE
+================================
+
+docker run -it --name temp-storage alpine sh
+docker rm temp-storage
+
+docker volume create lab2-data
+docker volume ls
+
+docker run --name volume-demo -v lab2-data:/data alpine sh
+docker run --rm -v lab2-data:/data alpine cat /data/record.txt
+
+docker run --rm -v "$PWD/data:/data" alpine cat /data/record.txt
+
+
+================================
+EXPERIMENT 4: DOCKER NETWORK
+================================
+
+docker network create lab2-network
+docker network ls
+
+docker run -d --name web-server --network lab2-network nginx:alpine
+docker run -it --name client-container --network lab2-network busybox sh
+
+docker network inspect lab2-network
+docker inspect web-server
+
+
+================================
+EXPERIMENT 5: KUBERNETES DEPLOYMENT
+================================
+
+minikube start --driver=docker
+minikube status
+
+kubectl get nodes
+kubectl get pods -A
+
+minikube image load devops-flask:1.0
+
+kubectl apply -f k8s/deployment.yaml
+kubectl apply -f k8s/service.yaml
+
+kubectl get pods
+kubectl get deployments
+kubectl get services
+
+
+================================
+EXPERIMENT 6: KUBERNETES STRATEGIES
+================================
+
+kubectl scale deployment flask-deployment --replicas=3
+kubectl scale deployment flask-deployment --replicas=5
+kubectl scale deployment flask-deployment --replicas=2
+
+docker build -t devops-flask:2.0 .
+minikube image load devops-flask:2.0
+
+kubectl set image deployment/flask-deployment flask-app=devops-flask:2.0
+kubectl rollout status deployment/flask-deployment
+kubectl rollout history deployment/flask-deployment
+kubectl rollout undo deployment/flask-deployment
+
+
+================================
+EXPERIMENT 7: CONTINUOUS DEPLOYMENT
+================================
+
+git add .
+git commit -m "Add Kubernetes CD pipeline"
+git push origin main
+
+kubectl get pods
+kubectl get deployments
+kubectl get services
+kubectl describe deployment flask-deployment

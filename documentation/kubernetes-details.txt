@@ -1,0 +1,45 @@
+KUBERNETES CONFIGURATION
+
+Cluster:
+Minikube
+
+Driver:
+Docker
+
+Application:
+Flask Application
+
+Deployment:
+flask-deployment
+
+Initial Replicas:
+2
+
+Service:
+flask-service
+
+Service Type:
+NodePort
+
+Container Port:
+5000
+
+NodePort:
+30080
+
+Deployment Strategies:
+1. Rolling Update
+2. Rollback
+3. Scaling
+
+Scaling Demonstration:
+2 to 3 replicas
+3 to 5 replicas
+5 to 2 replicas
+
+Continuous Deployment:
+Jenkins Pipeline
+
+Manifest Files:
+1. deployment.yaml
+2. service.yaml
